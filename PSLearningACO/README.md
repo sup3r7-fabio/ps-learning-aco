@@ -290,6 +290,97 @@ Export-LearningGraph -LearnerAnts <LearnerAnt[]> `
 
 ---
 
+### Get-ModuleContent
+Load learning materials (lessons, exercises, quizzes, solutions) from the content repository.
+
+```powershell
+Get-ModuleContent -ModuleId <string> -ContentType <string> [-Display] [-OutputPath <string>]
+```
+
+**Parameters**:
+- `-ModuleId`: Module identifier (e.g., "PS-Basics", "PS-Functions")
+- `-ContentType`: Type of content ("lesson", "exercises", "quiz", "solutions")
+- `-Display`: Display content in console
+- `-OutputPath`: Export content to file
+
+**Example**:
+```powershell
+# Display the PS-Basics lesson
+Get-ModuleContent -ModuleId "PS-Basics" -ContentType "lesson" -Display
+
+# Export the quiz to a file
+Get-ModuleContent -ModuleId "PS-Functions" -ContentType "quiz" -OutputPath "quiz.json"
+```
+
+---
+
+## Learning Content Repository
+
+The PSLearningACO module comes with **Get-ModuleContent** to access learning materials from a separate **content repository**.
+
+### Setup
+
+1. **Clone the content repository**:
+```powershell
+git clone https://github.com/sup3r7-fabio/ps-learning-aco-content.git
+```
+
+2. **Set environment variable** (optional, for easier access):
+```powershell
+$env:PSLearningACOContentPath = "C:\path\to\ps-learning-aco-content"
+```
+
+Or add to your PowerShell profile for persistence:
+```powershell
+[System.Environment]::SetEnvironmentVariable('PSLearningACOContentPath', 'C:\path\to\ps-learning-aco-content', 'User')
+```
+
+### Content Structure
+
+Each module contains:
+- **lesson.md** - Learning material with concepts and examples
+- **exercises.ps1** - Hands-on practice exercises (10+ per module)
+- **quiz.json** - Assessment questions (15+ per module)
+- **solutions.ps1** - Complete solutions with explanations
+
+### Available Modules
+
+**Beginner Level**:
+- PS-Basics, PS-Objects, PS-Pipeline, PS-API, PS-CrossPlatform
+
+**Intermediate Level**:
+- PS-Functions, PS-ErrorHandling, PS-Security, PS-Testing
+
+**Advanced Level**:
+- PS-Modules, PS-Classes, PS-Remoting, PS-Advanced, PS-Performance, PS-Automation
+
+### Learning Workflow
+
+```powershell
+# 1. View the lesson
+Get-ModuleContent -ModuleId "PS-Basics" -ContentType "lesson" -Display
+
+# 2. Work through exercises
+Get-ModuleContent -ModuleId "PS-Basics" -ContentType "exercises" -Display
+
+# 3. Take the quiz
+$quiz = Get-ModuleContent -ModuleId "PS-Basics" -ContentType "quiz"
+$quiz.QuizData.questions | Select-Object -First 3 | Format-List
+
+# 4. Review solutions
+Get-ModuleContent -ModuleId "PS-Basics" -ContentType "solutions" -Display
+
+# 5. Track progress
+Add-LearnerProgress -LearnerId "YourName" -ModuleId "PS-Basics" -Score 85 -CompletionTime 45
+
+# 6. Get recommended path for next module
+Get-OptimalPath -LearnerId "YourName" -TargetModule "PS-Advanced"
+```
+
+**Content Repository**: https://github.com/sup3r7-fabio/ps-learning-aco-content
+
+---
+
 ## Configuration
 
 ### ACO Parameters

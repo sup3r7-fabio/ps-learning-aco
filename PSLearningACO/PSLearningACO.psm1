@@ -95,7 +95,9 @@ Write-Host "  • Get-OptimalPath        - Find optimal learning paths" -Foregro
 Write-Host "  • Add-LearnerProgress    - Record learning performance" -ForegroundColor Gray
 Write-Host "  • Get-LearningAnalytics  - View analytics and insights" -ForegroundColor Gray
 Write-Host "  • Export-LearningGraph   - Export learning data" -ForegroundColor Gray
+Write-Host "  • Get-ModuleContent      - Load lesson/exercise/quiz/solutions" -ForegroundColor Gray
 Write-Host ""
 Write-Host "Quick Start: Start-LearningColony" -ForegroundColor Yellow
 Write-Host "Get Help: Get-Help Start-LearningColony -Examples" -ForegroundColor Yellow
+Write-Host "Content Repo: https://github.com/sup3r7-fabio/ps-learning-aco-content" -ForegroundColor Yellow
 Write-Host ""
