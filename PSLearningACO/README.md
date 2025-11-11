@@ -14,8 +14,9 @@ A PowerShell module that implements the Ant Colony Optimization (ACO) algorithm 
 ## Installation
 
 ### Prerequisites
-- PowerShell 5.1 or higher
+- **PowerShell Core 7.0 or higher** (cross-platform support)
 - Windows, macOS, or Linux
+- Git (for cloning the repository)
 
 ### Quick Start
 
