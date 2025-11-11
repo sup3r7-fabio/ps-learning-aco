@@ -60,17 +60,18 @@ Write-Host ""
 Write-Host "🛣️  Calculating optimal learning path..." -ForegroundColor Yellow
 try {
     $path = Get-OptimalPath `
-        -Colony $colony `
+        -LearnerId "DemoLearner" `
         -StartModule "PS-Basics" `
         -TargetModule "PS-Advanced" `
-        -LearnerAnt $learner
+        -LearningStyle "Practical"
     
-    if ($path -and $path.ModuleSequence.Count -gt 0) {
+    if ($path -and $path.OptimalPath.Count -gt 0) {
         Write-Host "✅ Optimal path calculated!" -ForegroundColor Green
         Write-Host "   Recommended learning sequence:" -ForegroundColor Cyan
-        $path.ModuleSequence | ForEach-Object { Write-Host "     → $_" -ForegroundColor Gray }
-        Write-Host "   Path Strength: $([math]::Round($path.PathStrength, 3))" -ForegroundColor Gray
-        Write-Host "   Iterations: $($path.Iterations)" -ForegroundColor Gray
+        $path.OptimalPath | ForEach-Object { Write-Host "     → $_" -ForegroundColor Gray }
+        Write-Host "   Path Strength: $($path.PathMetrics.PathStrength)" -ForegroundColor Gray
+        Write-Host "   Total Modules: $($path.PathMetrics.TotalModules)" -ForegroundColor Gray
+        Write-Host "   Estimated Time: $($path.PathMetrics.TotalEstimatedTime) minutes" -ForegroundColor Gray
     } else {
         Write-Host "⚠️  No optimal path found" -ForegroundColor Yellow
     }
@@ -83,8 +84,6 @@ Write-Host ""
 Write-Host "💾 Exporting learning graph..." -ForegroundColor Yellow
 try {
     Export-LearningGraph `
-        -LearnerAnts @($learner) `
-        -Colony $colony `
         -OutputPath "./DemoExport.json" `
         -Force
     
