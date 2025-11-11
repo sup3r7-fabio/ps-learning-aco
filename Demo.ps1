@@ -16,44 +16,23 @@ Write-Host "🏁 Starting the Learning Colony..." -ForegroundColor Yellow
 $colony = Start-LearningColony -Verbose
 Write-Host ""
 
-# Create a learner
-Write-Host "👤 Creating learner profile..." -ForegroundColor Yellow
-$learner = [PSLearningACO.LearnerAnt]::new(
-    "DemoLearner",
-    "Practical",
-    "PS-Basics"
-)
-Write-Host "✅ Learner created: $($learner.LearnerName) (Style: $($learner.LearningStyle))" -ForegroundColor Green
-Write-Host ""
-
 # Add some learner progress
 Write-Host "📊 Recording learner progress..." -ForegroundColor Yellow
-Add-LearnerProgress -Learner $learner `
-    -CurrentModule "PS-Basics" `
-    -ModuleCompleted $true `
-    -PerformanceScore 90 `
-    -TimeSpent 30 `
-    -Successful $true
+$learnerProgress1 = Add-LearnerProgress -LearnerId "DemoLearner" -ModuleId "PS-Basics" -Score 90 -CompletionTime 30 -ShowFeedback
 Write-Host "✅ Progress recorded for PS-Basics (Score: 90)" -ForegroundColor Green
 
-Add-LearnerProgress -Learner $learner `
-    -CurrentModule "Functions-Intro" `
-    -ModuleCompleted $true `
-    -PerformanceScore 85 `
-    -TimeSpent 45 `
-    -Successful $true
+$learnerProgress2 = Add-LearnerProgress -LearnerId "DemoLearner" -ModuleId "Functions-Intro" -Score 85 -CompletionTime 45 -ShowFeedback
 Write-Host "✅ Progress recorded for Functions-Intro (Score: 85)" -ForegroundColor Green
 Write-Host ""
 
 # Get learning analytics
 Write-Host "📈 Getting learning analytics..." -ForegroundColor Yellow
-$analytics = Get-LearningAnalytics -LearnerAnt $learner
+$analytics = Get-LearningAnalytics -LearnerId "DemoLearner"
 Write-Host "Analytics Summary:" -ForegroundColor Cyan
-Write-Host "  • Learner Name: $($analytics.LearnerName)" -ForegroundColor Gray
-Write-Host "  • Learning Style: $($analytics.LearningStyle)" -ForegroundColor Gray
-Write-Host "  • Average Score: $($analytics.AverageScore)" -ForegroundColor Gray
-Write-Host "  • Success Rate: $([math]::Round($analytics.SuccessRate * 100, 1))%" -ForegroundColor Gray
-Write-Host "  • Modules Completed: $($analytics.ModulesCompleted)" -ForegroundColor Gray
+Write-Host "  • Total Learners: $($analytics.SystemOverview.TotalLearners)" -ForegroundColor Gray
+Write-Host "  • Total Modules: $($analytics.SystemOverview.TotalModules)" -ForegroundColor Gray
+Write-Host "  • Total Pheromone Trails: $($analytics.SystemOverview.TotalPheromoneTrails)" -ForegroundColor Gray
+Write-Host "  • Average Skill Level: $($analytics.SystemOverview.AverageSkillLevel)" -ForegroundColor Gray
 Write-Host ""
 
 # Calculate optimal learning path
@@ -62,8 +41,7 @@ try {
     $path = Get-OptimalPath `
         -LearnerId "DemoLearner" `
         -StartModule "PS-Basics" `
-        -TargetModule "PS-Advanced" `
-        -LearningStyle "Practical"
+        -TargetModule "PS-Advanced"
     
     if ($path -and $path.OptimalPath.Count -gt 0) {
         Write-Host "✅ Optimal path calculated!" -ForegroundColor Green
