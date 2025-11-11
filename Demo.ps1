@@ -18,11 +18,19 @@ Write-Host ""
 
 # Add some learner progress
 Write-Host "📊 Recording learner progress..." -ForegroundColor Yellow
-$learnerProgress1 = Add-LearnerProgress -LearnerId "DemoLearner" -ModuleId "PS-Basics" -Score 90 -CompletionTime 30 -ShowFeedback
-Write-Host "✅ Progress recorded for PS-Basics (Score: 90)" -ForegroundColor Green
+try {
+    Add-LearnerProgress -LearnerId "DemoLearner" -ModuleId "PS-Basics" -Score 90 -CompletionTime 30 | Out-Null
+    Write-Host "✅ Progress recorded for PS-Basics (Score: 90)" -ForegroundColor Green
+} catch {
+    Write-Host "❌ Error recording PS-Basics: $($_.Exception.Message)" -ForegroundColor Red
+}
 
-$learnerProgress2 = Add-LearnerProgress -LearnerId "DemoLearner" -ModuleId "Functions-Intro" -Score 85 -CompletionTime 45 -ShowFeedback
-Write-Host "✅ Progress recorded for Functions-Intro (Score: 85)" -ForegroundColor Green
+try {
+    Add-LearnerProgress -LearnerId "DemoLearner" -ModuleId "PS-Functions" -Score 85 -CompletionTime 45 | Out-Null
+    Write-Host "✅ Progress recorded for PS-Functions (Score: 85)" -ForegroundColor Green
+} catch {
+    Write-Host "❌ Error recording PS-Functions: $($_.Exception.Message)" -ForegroundColor Red
+}
 Write-Host ""
 
 # Get learning analytics
