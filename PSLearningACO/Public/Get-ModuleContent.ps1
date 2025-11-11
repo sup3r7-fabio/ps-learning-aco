@@ -188,8 +188,8 @@ function Get-ModuleContent {
                         Write-Host ""
                         Write-Host "Questions included:" -ForegroundColor Green
                         foreach ($q in $result.QuizData.questions) {
-                            $difficulty = $q.difficulty.ToUpper()
-                            Write-Host "  [$difficulty] Q$($q.id): $($q.question)" -ForegroundColor Gray
+                            $difficulty = if ($q.difficulty) { $q.difficulty.ToUpper() } else { "UNKNOWN" }
+                            Write-Host "  [$difficulty] $($q.id): $($q.question)" -ForegroundColor Gray
                         }
                     }
                     default {
