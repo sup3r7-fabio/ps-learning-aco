@@ -1,0 +1,227 @@
+{
+    "PS-Basics": {
+        "Title": "PowerShell Fundamentals",
+        "Prerequisites": [],
+        "Difficulty": 1,
+        "EstimatedTime": 45,
+        "LearningObjectives": [
+            "Understanding PowerShell console and ISE",
+            "Basic cmdlet syntax and structure", 
+            "Working with variables and data types",
+            "Using Get-Help and Get-Command",
+            "Understanding the PowerShell pipeline"
+        ],
+        "Tags": ["Beginner", "Foundation", "Essential"],
+        "ContentType": "Mixed"
+    },
+    "PS-Objects": {
+        "Title": "Working with PowerShell Objects",
+        "Prerequisites": ["PS-Basics"],
+        "Difficulty": 2,
+        "EstimatedTime": 60,
+        "LearningObjectives": [
+            "Understanding PowerShell objects vs text",
+            "Exploring object properties and methods",
+            "Using Select-Object and Where-Object",
+            "Filtering and sorting objects",
+            "Working with object collections"
+        ],
+        "Tags": ["Intermediate", "Objects", "Pipeline"],
+        "ContentType": "Practical"
+    },
+    "PS-Pipeline": {
+        "Title": "Mastering the PowerShell Pipeline",
+        "Prerequisites": ["PS-Objects"],
+        "Difficulty": 2,
+        "EstimatedTime": 50,
+        "LearningObjectives": [
+            "Advanced pipeline techniques",
+            "ForEach-Object and processing",
+            "Pipeline parameter binding",
+            "Optimizing pipeline performance",
+            "Error handling in pipelines"
+        ],
+        "Tags": ["Intermediate", "Pipeline", "Performance"],
+        "ContentType": "Practical"
+    },
+    "PS-Functions": {
+        "Title": "PowerShell Functions and Scripts",
+        "Prerequisites": ["PS-Pipeline"],
+        "Difficulty": 3,
+        "EstimatedTime": 75,
+        "LearningObjectives": [
+            "Creating basic and advanced functions",
+            "Function parameters and parameter sets",
+            "Return values and output streams",
+            "Function scope and variable scoping",
+            "Best practices for function design"
+        ],
+        "Tags": ["Intermediate", "Functions", "Scripting"],
+        "ContentType": "Practical"
+    },
+    "PS-ErrorHandling": {
+        "Title": "Error Handling and Debugging",
+        "Prerequisites": ["PS-Functions"],
+        "Difficulty": 3,
+        "EstimatedTime": 65,
+        "LearningObjectives": [
+            "Understanding error types in PowerShell",
+            "Try-Catch-Finally blocks",
+            "Error variables and error actions",
+            "Debugging techniques and tools",
+            "Writing robust error-handling code"
+        ],
+        "Tags": ["Intermediate", "ErrorHandling", "Debugging"],
+        "ContentType": "Practical"
+    },
+    "PS-Modules": {
+        "Title": "PowerShell Modules Development",
+        "Prerequisites": ["PS-ErrorHandling"],
+        "Difficulty": 4,
+        "EstimatedTime": 90,
+        "LearningObjectives": [
+            "Understanding module structure and manifest",
+            "Creating script and binary modules",
+            "Module importing and exporting",
+            "Publishing modules to repositories",
+            "Module versioning and dependencies"
+        ],
+        "Tags": ["Advanced", "Modules", "Development"],
+        "ContentType": "Practical"
+    },
+    "PS-Classes": {
+        "Title": "PowerShell Classes and OOP",
+        "Prerequisites": ["PS-Modules"],
+        "Difficulty": 4,
+        "EstimatedTime": 80,
+        "LearningObjectives": [
+            "Creating PowerShell classes",
+            "Constructors, properties, and methods",
+            "Inheritance and polymorphism",
+            "Static members and enum types",
+            "Class-based DSC resources"
+        ],
+        "Tags": ["Advanced", "Classes", "OOP"],
+        "ContentType": "Theoretical"
+    },
+    "PS-Advanced": {
+        "Title": "Advanced PowerShell Concepts",
+        "Prerequisites": ["PS-Classes"],
+        "Difficulty": 5,
+        "EstimatedTime": 120,
+        "LearningObjectives": [
+            "PowerShell Desired State Configuration (DSC)",
+            "Advanced function techniques",
+            "Custom formatting and type files",
+            "PowerShell workflows and jobs",
+            "Performance optimization strategies"
+        ],
+        "Tags": ["Advanced", "Expert", "DSC"],
+        "ContentType": "Mixed"
+    },
+    "PS-Remoting": {
+        "Title": "PowerShell Remoting and Sessions",
+        "Prerequisites": ["PS-Advanced"],
+        "Difficulty": 4,
+        "EstimatedTime": 70,
+        "LearningObjectives": [
+            "Configuring PowerShell remoting",
+            "Creating and managing sessions",
+            "Remote command execution",
+            "Security considerations for remoting",
+            "Troubleshooting remoting issues"
+        ],
+        "Tags": ["Advanced", "Remoting", "Security"],
+        "ContentType": "Practical"
+    },
+    "PS-Security": {
+        "Title": "PowerShell Security Best Practices",
+        "Prerequisites": ["PS-Functions"],
+        "Difficulty": 4,
+        "EstimatedTime": 85,
+        "LearningObjectives": [
+            "Execution policies and code signing",
+            "Constrained language mode",
+            "PowerShell transcription and logging",
+            "Secure coding practices",
+            "Anti-malware and PowerShell"
+        ],
+        "Tags": ["Advanced", "Security", "BestPractices"],
+        "ContentType": "Theoretical"
+    },
+    "PS-Testing": {
+        "Title": "Testing PowerShell Code with Pester",
+        "Prerequisites": ["PS-Modules"],
+        "Difficulty": 4,
+        "EstimatedTime": 95,
+        "LearningObjectives": [
+            "Introduction to Pester framework",
+            "Writing unit and integration tests",
+            "Mocking and test doubles",
+            "Code coverage analysis",
+            "Continuous integration with tests"
+        ],
+        "Tags": ["Advanced", "Testing", "Pester"],
+        "ContentType": "Practical"
+    },
+    "PS-Performance": {
+        "Title": "PowerShell Performance Optimization",
+        "Prerequisites": ["PS-Advanced"],
+        "Difficulty": 5,
+        "EstimatedTime": 100,
+        "LearningObjectives": [
+            "Identifying performance bottlenecks",
+            "Memory management and garbage collection",
+            "Optimizing loops and iterations",
+            "Efficient data structures and algorithms",
+            "Profiling and benchmarking tools"
+        ],
+        "Tags": ["Expert", "Performance", "Optimization"],
+        "ContentType": "Mixed"
+    },
+    "PS-CrossPlatform": {
+        "Title": "Cross-Platform PowerShell Development",
+        "Prerequisites": ["PS-Modules"],
+        "Difficulty": 3,
+        "EstimatedTime": 60,
+        "LearningObjectives": [
+            "PowerShell Core vs Windows PowerShell",
+            "Platform-specific considerations",
+            "Cross-platform module development",
+            "Container-based PowerShell deployment",
+            "Linux and macOS PowerShell features"
+        ],
+        "Tags": ["Intermediate", "CrossPlatform", "Modern"],
+        "ContentType": "Mixed"
+    },
+    "PS-API": {
+        "Title": "REST APIs and Web Services with PowerShell",
+        "Prerequisites": ["PS-Pipeline"],
+        "Difficulty": 3,
+        "EstimatedTime": 70,
+        "LearningObjectives": [
+            "Making REST API calls with Invoke-RestMethod",
+            "Authentication and headers management",
+            "JSON and XML data processing",
+            "Error handling in web requests",
+            "Building simple web services"
+        ],
+        "Tags": ["Intermediate", "API", "WebServices"],
+        "ContentType": "Practical"
+    },
+    "PS-Automation": {
+        "Title": "PowerShell Automation and Orchestration",
+        "Prerequisites": ["PS-Security", "PS-Remoting"],
+        "Difficulty": 5,
+        "EstimatedTime": 110,
+        "LearningObjectives": [
+            "Building automation frameworks",
+            "Scheduled tasks and job management",
+            "Configuration management at scale",
+            "Monitoring and alerting systems",
+            "Integration with external tools"
+        ],
+        "Tags": ["Expert", "Automation", "Enterprise"],
+        "ContentType": "Practical"
+    }
+}

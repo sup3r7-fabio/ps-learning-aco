@@ -1,0 +1,45 @@
+{
+    "Alpha": 1.0,
+    "Beta": 2.0,
+    "EvaporationRate": 0.1,
+    "ReinforcementFactor": 1.0,
+    "MaxIterations": 100,
+    "ConvergenceThreshold": 0.01,
+    "LearningStyleWeights": {
+        "Visual": {
+            "DiagramModules": 1.5,
+            "VideoContent": 1.3,
+            "InteractiveContent": 1.2
+        },
+        "Practical": {
+            "HandsOnLabs": 1.8,
+            "CodingExercises": 1.6,
+            "RealWorldExamples": 1.4
+        },
+        "Theoretical": {
+            "ConceptualModules": 1.5,
+            "AdvancedTopics": 1.3,
+            "ReferenceContent": 1.2
+        },
+        "Mixed": {
+            "AllContent": 1.0
+        }
+    },
+    "DifficultyProgression": {
+        "MinSkillGap": 0.5,
+        "MaxSkillGap": 2.0,
+        "OptimalGap": 1.0
+    },
+    "PerformanceThresholds": {
+        "ExcellentScore": 90,
+        "GoodScore": 80,
+        "PassingScore": 70,
+        "MinScore": 0
+    },
+    "TimePreferences": {
+        "ShortSession": 30,
+        "MediumSession": 60,
+        "LongSession": 120,
+        "ExtendedSession": 180
+    }
+}
